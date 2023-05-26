@@ -1,0 +1,344 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>mybatis | Chernoy’s blog</title><meta name="author" content="Chernoy"><meta name="copyright" content="Chernoy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="过一遍mybatis+mybatisplus">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mybatis">
+<meta property="og:url" content="https://chernoy.github.io/2023/05/24/mybatis/index.html">
+<meta property="og:site_name" content="Chernoy’s blog">
+<meta property="og:description" content="过一遍mybatis+mybatisplus">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.peo.pw/a/2023/05/03/6451b19ec0588.jpg">
+<meta property="article:published_time" content="2023-05-24T02:43:49.000Z">
+<meta property="article:modified_time" content="2023-05-25T14:03:54.005Z">
+<meta property="article:author" content="Chernoy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.peo.pw/a/2023/05/03/6451b19ec0588.jpg"><link rel="shortcut icon" href="/Hexo_img/log.jpg"><link rel="canonical" href="https://chernoy.github.io/2023/05/24/mybatis/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":1,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: ,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'mybatis',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-05-25 22:03:54'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/modify.css"><script src="/js/sakura.js"></script><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = 'hidden';
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+
+preloader.initLoading()
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/Hexo_img/log.jpg" onerror="onerror=null;src='https://pic.peo.pw/a/2023/05/03/6451b1aa04eef.jpg'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/hot-article/"><i class="fa-fw fa-solid fa-book-bookmark"></i><span> 阅读排行</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-solid fa-pencil"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 友链</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-solid fa-circle-user"></i><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/comments/"><i class="fa-fw fas fa-heart"></i><span> 关于&amp;留言</span></a></li><li><a class="site-page child" href="/sharesomething/"><i class="fa-fw fa-solid fa-walkie-talkie"></i><span> 生活点滴</span></a></li><li><a class="site-page child" href="/essay/"><i class="fa-fw fa-solid fa-walkie-talkie"></i><span> 碎碎念念</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pic.peo.pw/a/2023/05/03/6451b19ec0588.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Chernoy’s blog"><img class="site-icon" src="/Hexo_img/log.jpg"/><span class="site-name">Chernoy’s blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/hot-article/"><i class="fa-fw fa-solid fa-book-bookmark"></i><span> 阅读排行</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-solid fa-pencil"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 友链</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-solid fa-circle-user"></i><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/comments/"><i class="fa-fw fas fa-heart"></i><span> 关于&amp;留言</span></a></li><li><a class="site-page child" href="/sharesomething/"><i class="fa-fw fa-solid fa-walkie-talkie"></i><span> 生活点滴</span></a></li><li><a class="site-page child" href="/essay/"><i class="fa-fw fa-solid fa-walkie-talkie"></i><span> 碎碎念念</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">mybatis</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-05-24T02:43:49.000Z" title="发表于 2023-05-24 10:43:49">2023-05-24</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-05-25T14:03:54.005Z" title="更新于 2023-05-25 22:03:54">2023-05-25</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">971</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="mybatis"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="MyBatis："><a href="#MyBatis：" class="headerlink" title="MyBatis："></a>MyBatis：</h1><h2 id="1-基础操作"><a href="#1-基础操作" class="headerlink" title="1.基础操作"></a>1.基础操作</h2><h3 id="1-1删除"><a href="#1-1删除" class="headerlink" title="1.1删除"></a>1.1删除</h3><p>在准备好表，实体类，数据源，properties文件以及导入mybais包，mysql包之后，就可以开始进行mybatis的练手了！</p>
+<p>这里为了方便在控制台看到sql可以在配置文件中导入：</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mybatis.configuration.log-impl</span>=<span class="string">org.apache.ibatis.logging.stdout.StdOutImpl</span></span><br></pre></td></tr></table></figure>
+
+<p>结果大概长这个样子：</p>
+<p><img src="/2023/05/24/mybatis/image-20230525175435803.png" alt="image-20230525175435803"></p>
+<p>这里为什么id是？，因为采用了#{}占位符的形式，这种书写方式叫做预编译SQL，有两个好处：</p>
+<ol>
+<li><p>性能更高</p>
+<p><img src="/2023/05/24/mybatis/image-20230525175614628.png" alt="image-20230525175614628"></p>
+<p>通过这张图片应该很明显能看到，在使用预编译SQL之前，几乎同样的删除需要编译三次，预编译SQL，编译一次之后会将编译后的SQL语句缓存起来，后面再次执行这条语句时，不会再次编译。（只是输入的参数不同）</p>
+</li>
+<li><p>更安全（防止SQL注入）</p>
+</li>
+</ol>
+<p>SQL注入：由于没有对用户输入进行充分检查，而SQL又是拼接而成，在用户输入参数时，在参数中添加一些SQL关键字，达到改变SQL运行结果的目的，也可以完成恶意攻击。</p>
+<p>举个例子：</p>
+<p><img src="/2023/05/24/mybatis/image-20230525180421367.png" alt="image-20230525180421367"></p>
+<p>在客户端 密码处刻意的输入 一个永远成立的条件，所以这种字符串拼接的方式不安全</p>
+<p>预编译SQL：</p>
+<p><img src="/2023/05/24/mybatis/image-20230525180547474.png" alt="image-20230525180547474"></p>
+<p>把整个<code>&#39; or &#39;1&#39;=&#39;1</code>作为一个完整的参数，赋值给第2个问号（<code>&#39; or &#39;1&#39;=&#39;1</code>进行了转义，只当做字符串使用）</p>
+<p>在Mybatis中提供的参数占位符有两种：${…} 、#{…}</p>
+<ul>
+<li><p>#{…}</p>
+<ul>
+<li>执行SQL时，会将#{…}替换为?，生成预编译SQL，会自动设置参数值</li>
+<li>使用时机：参数传递，都使用#{…}</li>
+</ul>
+</li>
+<li><p>${…}</p>
+<ul>
+<li>拼接SQL。直接将参数拼接在SQL语句中，存在SQL注入问题</li>
+<li>使用时机：如果对表名、列表进行动态设置时使用</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>注意事项：在项目开发中，建议使用#{…}，生成预编译SQL，防止SQL注入安全。</p>
+</blockquote>
+<h3 id="1-2新增"><a href="#1-2新增" class="headerlink" title="1.2新增"></a>1.2新增</h3><p><img src="/2023/05/24/mybatis/image-20230525202809383.png" alt="image-20230525202809383"></p>
+<p>这里有几个需要注意的点：</p>
+<ol>
+<li>这个add新增方法，因为传入的参数太多，所以直接用Emp封装起来传</li>
+<li>新增操作的字段这里，上面的字段跟表对应，下面的字段跟pojo对应，也就是说下面写的是属性名（驼峰命名法）</li>
+</ol>
+<p>这里我的测试方法中在新增完成之后拿不到该条数据的主键，可以看到getID为null</p>
+<p><img src="/2023/05/24/mybatis/image-20230525203144081.png" alt="image-20230525203144081"></p>
+<p><img src="/2023/05/24/mybatis/image-20230525203028503.png" alt="image-20230525203028503"></p>
+<p>这个新增返回主键的操作，在数据涉及到多张表的时候有用，举个例子，之前做的瑞吉外卖项目，新增套餐，此时涉及到三张表，dish菜品表，setmeal套餐表，以及维护他俩之间的关系表 setmeal_dish表，保存套餐之后（这里就需要获取套餐id，之后会拿）setmeal_dish需要记录套餐id，和菜品id</p>
+<p><img src="/2023/05/24/mybatis/image-20230525203931165.png" alt="image-20230525203931165"></p>
+<p>成功咯！</p>
+<h3 id="3-更新"><a href="#3-更新" class="headerlink" title="3.更新"></a>3.更新</h3><p>更新也很简单 只要记住分为两步走</p>
+<p>1.getById数据的回显，参数是id 返回实体类</p>
+<p>2.更新操作 参数是实体类，无返回值</p>
+<p><img src="/2023/05/24/mybatis/image-20230525213934890.png" alt="image-20230525213934890"></p>
+<h3 id="4-条件查询"><a href="#4-条件查询" class="headerlink" title="4.条件查询"></a>4.条件查询</h3><h4 id="4-1模糊查询的参数占位符问题："><a href="#4-1模糊查询的参数占位符问题：" class="headerlink" title="4.1模糊查询的参数占位符问题："></a>4.1模糊查询的参数占位符问题：</h4><p><img src="/2023/05/24/mybatis/image-20230525213230870.png" alt="image-20230525213230870"></p>
+<p>这里用到了模糊查询，值得注意的是，这个#{}不能写在引号里面，如果写在引号里，就相当于 “？” 变成了字符串，所以用${}拼接的形式完成，但是这种方法不是预编译的SQL，性能低，不安全。平时我们用到的主要还是下面的一种方法</p>
+<p><img src="/2023/05/24/mybatis/image-20230525213617169.png" alt="image-20230525213617169"></p>
+<p>用一个concat函数解决</p>
+<h4 id="4-2参数问题："><a href="#4-2参数问题：" class="headerlink" title="4.2参数问题："></a>4.2参数问题：</h4><p><img src="/2023/05/24/mybatis/image-20230525213719892.png" alt="image-20230525213719892"></p>
+<h2 id="2-XML配置"><a href="#2-XML配置" class="headerlink" title="2.XML配置"></a>2.XML配置</h2><h3 id="2-1规范"><a href="#2-1规范" class="headerlink" title="2.1规范"></a>2.1规范</h3><ol>
+<li>xml映射文件跟Mapper接口 同包同名</li>
+<li>xml映射文件里的namespace属性为Mapper接口全路径一致</li>
+<li>xml映射文件中的sql语句的id要跟Mapper接口中的方法名保持一致，并且保持返回类型一致</li>
+</ol>
+<p><strong>目录之间的分隔我们用&#x2F;&#x2F;</strong></p>
+<p><img src="/2023/05/24/mybatis/image-20230525215845701.png" alt="image-20230525215845701"></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://Chernoy.github.io">Chernoy</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chernoy.github.io/2023/05/24/mybatis/">https://chernoy.github.io/2023/05/24/mybatis/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Chernoy.github.io" target="_blank">Chernoy’s blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://pic.peo.pw/a/2023/05/03/6451b19ec0588.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/05/22/maven/" title="maven"><img class="cover" src="https://pic.peo.pw/a/2023/05/03/64520e0de0db4.jpg" onerror="onerror=null;src='https://pic.peo.pw/a/2023/05/03/6451b1aa04eef.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">maven</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/Hexo_img/log.jpg" onerror="this.onerror=null;this.src='https://pic.peo.pw/a/2023/05/03/6451b1aa04eef.jpg'" alt="avatar"/></div><div class="author-info__name">Chernoy</div><div class="author-info__description">一以贯之的努力，不得懈怠的人生，每天微小的积累会决定最终的结果。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Chernoy"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Chernoy/" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="/1959613890@email.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a><a class="social-icon" href="/1959613890" target="_blank" title="QQ"><i class="fa-brands fa-qq" style="color: #000000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">官官的博客，欢迎访问！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MyBatis%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">MyBatis：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C"><span class="toc-number">1.1.</span> <span class="toc-text">1.基础操作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1%E5%88%A0%E9%99%A4"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2%E6%96%B0%E5%A2%9E"><span class="toc-number">1.1.2.</span> <span class="toc-text">1.2新增</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%9B%B4%E6%96%B0"><span class="toc-number">1.1.3.</span> <span class="toc-text">3.更新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.1.4.</span> <span class="toc-text">4.条件查询</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1%E6%A8%A1%E7%B3%8A%E6%9F%A5%E8%AF%A2%E7%9A%84%E5%8F%82%E6%95%B0%E5%8D%A0%E4%BD%8D%E7%AC%A6%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="toc-number">1.1.4.1.</span> <span class="toc-text">4.1模糊查询的参数占位符问题：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2%E5%8F%82%E6%95%B0%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="toc-number">1.1.4.2.</span> <span class="toc-text">4.2参数问题：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-XML%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.</span> <span class="toc-text">2.XML配置</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1%E8%A7%84%E8%8C%83"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1规范</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/05/24/mybatis/" title="mybatis"><img src="https://pic.peo.pw/a/2023/05/03/6451b19ec0588.jpg" onerror="this.onerror=null;this.src='https://pic.peo.pw/a/2023/05/03/6451b1aa04eef.jpg'" alt="mybatis"/></a><div class="content"><a class="title" href="/2023/05/24/mybatis/" title="mybatis">mybatis</a><time datetime="2023-05-24T02:43:49.000Z" title="发表于 2023-05-24 10:43:49">2023-05-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/05/22/maven/" title="maven"><img src="https://pic.peo.pw/a/2023/05/03/64520e0de0db4.jpg" onerror="this.onerror=null;this.src='https://pic.peo.pw/a/2023/05/03/6451b1aa04eef.jpg'" alt="maven"/></a><div class="content"><a class="title" href="/2023/05/22/maven/" title="maven">maven</a><time datetime="2023-05-22T07:04:37.000Z" title="发表于 2023-05-22 15:04:37">2023-05-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/05/15/redis/" title="redis"><img src="https://pic.peo.pw/a/2023/05/03/64520e0de0db4.jpg" onerror="this.onerror=null;this.src='https://pic.peo.pw/a/2023/05/03/6451b1aa04eef.jpg'" alt="redis"/></a><div class="content"><a class="title" href="/2023/05/15/redis/" title="redis">redis</a><time datetime="2023-05-15T03:29:26.000Z" title="发表于 2023-05-15 11:29:26">2023-05-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/05/10/caclution/" title="caclution"><img src="https://pic.peo.pw/a/2023/05/03/6451b1a415502.jpg" onerror="this.onerror=null;this.src='https://pic.peo.pw/a/2023/05/03/6451b1aa04eef.jpg'" alt="caclution"/></a><div class="content"><a class="title" href="/2023/05/10/caclution/" title="caclution">caclution</a><time datetime="2023-05-10T05:27:30.000Z" title="发表于 2023-05-10 13:27:30">2023-05-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/05/07/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="java学习笔记"><img src="https://pic.peo.pw/a/2023/05/03/6451b1ab8a50b.jpg" onerror="this.onerror=null;this.src='https://pic.peo.pw/a/2023/05/03/6451b1aa04eef.jpg'" alt="java学习笔记"/></a><div class="content"><a class="title" href="/2023/05/07/java%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="java学习笔记">java学习笔记</a><time datetime="2023-05-07T05:25:19.000Z" title="发表于 2023-05-07 13:25:19">2023-05-07</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Chernoy</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">欢迎光顾官官的博客!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'k2BY9q06vuF7P54lwGRWbtC7-gzGzoHsz',
+      appKey: 'KVskSoDG7ONXzmpG8cz9XHJY',
+      avatar: 'monsterid',
+      serverURLs: 'https://k2by9q06.lc-cn-n1-shared.com',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: true
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="8379652209" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/essay/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":380,"hOffset":0,"vOffset":-50},"mobile":{"show":true},"react":{"opacity":0.85},"log":false});</script></body></html>
