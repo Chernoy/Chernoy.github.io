@@ -1,0 +1,490 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>javaSE面试题 | Chernoy’s blog</title><meta name="author" content="Chernoy"><meta name="copyright" content="Chernoy"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="ffffff"><meta name="description" content="即便再抗拒，也要开始。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="javaSE面试题">
+<meta property="og:url" content="https://chernoy.github.io/2023/07/07/javaSE%E9%9D%A2%E8%AF%95%E9%A2%98/index.html">
+<meta property="og:site_name" content="Chernoy’s blog">
+<meta property="og:description" content="即便再抗拒，也要开始。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img1.imgtp.com/2023/06/26/jzQID8eJ.jpg">
+<meta property="article:published_time" content="2023-07-07T05:23:29.000Z">
+<meta property="article:modified_time" content="2023-07-22T14:31:30.780Z">
+<meta property="article:author" content="Chernoy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://img1.imgtp.com/2023/06/26/jzQID8eJ.jpg"><link rel="shortcut icon" href="/true"><link rel="canonical" href="https://chernoy.github.io/2023/07/07/javaSE%E9%9D%A2%E8%AF%95%E9%A2%98/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: ,
+  }
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'javaSE面试题',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-07-22 22:31:30'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/modify.css"><link rel="stylesheet" href="/css/transpancy.css"><link rel="stylesheet" href="/css/font.css"><script src="/js/sakura.js"></script><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = 'hidden';
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+
+preloader.initLoading()
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://pic.peo.pw/a/2023/05/29/647490a877680.jpg" onerror="onerror=null;src='https://img1.imgtp.com/2023/06/26/u04s7bnB.jpg'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/hot-article/"><i class="fa-fw fa-solid fa-book-bookmark"></i><span> 阅读排行</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-solid fa-pencil"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 友链</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-solid fa-circle-user"></i><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/comments/"><i class="fa-fw fas fa-heart"></i><span> 关于&amp;留言</span></a></li><li><a class="site-page child" href="/sharesomething/"><i class="fa-fw fa-solid fa-walkie-talkie"></i><span> 生活点滴</span></a></li><li><a class="site-page child" href="/essay/"><i class="fa-fw fa-solid fa-walkie-talkie"></i><span> 碎碎念念</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://img1.imgtp.com/2023/06/26/jzQID8eJ.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Chernoy’s blog"><img class="site-icon" src="https://img1.imgtp.com/2023/06/26/NvKdeucr.jpg"/><span class="site-name">Chernoy’s blog</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/hot-article/"><i class="fa-fw fa-solid fa-book-bookmark"></i><span> 阅读排行</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-solid fa-pencil"></i><span> 文章</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 友链</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友人帐</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa-solid fa-circle-user"></i><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/comments/"><i class="fa-fw fas fa-heart"></i><span> 关于&amp;留言</span></a></li><li><a class="site-page child" href="/sharesomething/"><i class="fa-fw fa-solid fa-walkie-talkie"></i><span> 生活点滴</span></a></li><li><a class="site-page child" href="/essay/"><i class="fa-fw fa-solid fa-walkie-talkie"></i><span> 碎碎念念</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">javaSE面试题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-07-07T05:23:29.000Z" title="发表于 2023-07-07 13:23:29">2023-07-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-07-22T14:31:30.780Z" title="更新于 2023-07-22 22:31:30">2023-07-22</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">5.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>18分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="javaSE面试题"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="1-例题："><a href="#1-例题：" class="headerlink" title="1.例题："></a>1.<strong>例题</strong>：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span>` `class` `TestObj&#123;</span><br><span class="line">  ``<span class="keyword">public</span>` `<span class="keyword">static</span>` `<span class="keyword">void</span>` `main(String[] args)&#123;</span><br><span class="line">    ``Object o=``<span class="keyword">new</span>` `Object()&#123;</span><br><span class="line">      ``<span class="keyword">public</span>` `<span class="type">boolean</span>` `equals(Object obj)&#123;</span><br><span class="line">        ``<span class="keyword">return</span>` `<span class="literal">true</span>``;</span><br><span class="line">      ``&#125;</span><br><span class="line">    ``&#125;;</span><br><span class="line">    ``System.out.println(o.equals(``<span class="string">&quot;Fred&quot;</span>``));</span><br><span class="line">  ``&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>解析</strong>：</p>
+<p> 创建了一个匿名内部类，并将所创建的匿名对象赋给 Object (多态：子类对象赋给超类引用)。同时，该匿名内部类重写了 Object  类的   equals 方法。 </p>
+<p><strong>扩展</strong>：</p>
+<p>内部类：<a target="_blank" rel="noopener" href="https://blog.csdn.net/justloveyou_/article/details/53245561">(120条消息) Java 内部类综述_书呆子Rico的博客-CSDN博客</a></p>
+<p>继承：<a target="_blank" rel="noopener" href="https://blog.csdn.net/justloveyou_/article/details/52798666">(120条消息) Java 继承、多态与类的复用_书呆子Rico的博客-CSDN博客</a></p>
+<h2 id="2-例题"><a href="#2-例题" class="headerlink" title="2.例题"></a>2.例题</h2><p>  1.Java三大注解分别是<a target="_blank" rel="noopener" href="https://www.nowcoder.com/users/992988">@Override</a> @Deprecated @Suppresswarnings </p>
+<p>  2.<a target="_blank" rel="noopener" href="https://www.nowcoder.com/users/992988">@Override</a> 注解表名子类中覆盖了超类中的某个方法，如果写错了覆盖形式，编译器会报错 </p>
+<p>  3.@Deprecated 表明不希望别人在以后使用这个类，方法，变量等等 </p>
+<p>  4.@Suppresswarnings 达到抑制编译器产生警告的目的，但是不建议使用，因为后期编码人员看不懂编译器提示的警告，不能更好的选择更好的类去完成任务</p>
+<h2 id="3-知识点"><a href="#3-知识点" class="headerlink" title="3.知识点"></a>3.知识点</h2><p>字符串String，StirngBuffer，StringTokenizer，日期类Date，Calendar，集合框架List，ArrayList，Set，HashMap</p>
+<p>3.1</p>
+<pre><code> ![image-20230714072124336](javaSE面试题/image-20230714072124336.png)
+</code></pre>
+<p>双引号和String的构造方法创建字符串对象的区别是：双引号创建的对象保存在常量池，构造方法创建的字符串保存在堆内存当中。case</p>
+<h1 id="暑假日记准备启程："><a href="#暑假日记准备启程：" class="headerlink" title="暑假日记准备启程："></a>暑假日记准备启程：</h1><h2 id="1-2023-x2F-7-x2F-22"><a href="#1-2023-x2F-7-x2F-22" class="headerlink" title="1.2023&#x2F;7&#x2F;22"></a>1.2023&#x2F;7&#x2F;22</h2><h3 id="1-JDK和JRE的区别："><a href="#1-JDK和JRE的区别：" class="headerlink" title="1.JDK和JRE的区别："></a>1.JDK和JRE的区别：</h3><p>JDK（java development kit）java开发工具包</p>
+<p>JRE（java runtime environment）java运行环境</p>
+<p>JDK包含JRE JDK中有一个jre的目录，里面包含了bin和lib，bin是JVM，lib是JVM所需要的类库。</p>
+<h3 id="2-x3D-x3D-和equals的区别"><a href="#2-x3D-x3D-和equals的区别" class="headerlink" title="2.&#x3D;&#x3D; 和equals的区别"></a>2.&#x3D;&#x3D; 和equals的区别</h3><p>对于基本数据类型，&#x3D;&#x3D;比较的是值</p>
+<p>对于引用数据类型，&#x3D;&#x3D;比较的是地址</p>
+<p>equals只能比较引用数据类型</p>
+<p>如果重写了equals，则比较的是值，没重写，比较地址</p>
+<h3 id="3-final在java中的作用"><a href="#3-final在java中的作用" class="headerlink" title="3.final在java中的作用"></a>3.final在java中的作用</h3><ul>
+<li><p>修饰一个引用</p>
+<ul>
+<li>引用为基本数据类型，则为常量不能修改</li>
+<li>为引用数据类型，如数组和对象，则数组和对象本身可以变，但是指向该数组或对象的地址不能改变</li>
+<li>为类的成员变量，则必须赋值否则编译报错</li>
+</ul>
+</li>
+<li><p>修饰方法</p>
+<p>该方法称为最终方法，无法被子类重写，但是可以被继承。</p>
+</li>
+<li><p>修饰类</p>
+<p>最终类，无法被继承</p>
+</li>
+</ul>
+<p>解释：继承可以理解为扩展，final修饰的方法，不能被子类重写覆盖，意味着无法改变该方法的实现，即无法自定义进行修改，然而无论有没有final修饰，都不影响类的继承性，子类会继承父类所有的非私有方法，包括被final修饰的方法，但是如果子类中有方法与父类中被final修饰的方法重名，则会编译报错。另一方面，对于类而言，<code>final</code> 修饰的类是无法被继承的。这意味着其他类无法扩展（继承）一个被 <code>final</code> 修饰的类。这通常用于表示某个类的设计是最终的，不允许其他类继承该类，以确保该类的行为和实现不会被改变。</p>
+<h3 id="4-java中的Math-round-1-5-等于多少"><a href="#4-java中的Math-round-1-5-等于多少" class="headerlink" title="4.java中的Math.round(-1.5)等于多少"></a>4.java中的Math.round(-1.5)等于多少</h3><p>Math提供了三个与取整有关的方法，ceil，floor，round</p>
+<ol>
+<li><p>ceil：向上取整</p>
+<p>Math.ceil(11.3)&#x3D;12</p>
+<p>Math.ceil(-11.3)&#x3D;-11</p>
+</li>
+<li><p>floor：向下取整</p>
+<p>Math.floor(11.3)&#x3D;11</p>
+<p>Math.floor(-11.3)&#x3D;12</p>
+</li>
+<li><p>round：四舍五入</p>
+<p>Math.round(11.3)&#x3D;11</p>
+<p>Math.round(11.8)&#x3D;12</p>
+<p>Math.round(-11.3)&#x3D;-11</p>
+<p>Math.round(-11.8)&#x3D;-12</p>
+</li>
+</ol>
+<h3 id="5-String属于基础的数据类型吗？"><a href="#5-String属于基础的数据类型吗？" class="headerlink" title="5.String属于基础的数据类型吗？"></a>5.String属于基础的数据类型吗？</h3><p>不属于，八种基本数据类型：byte，short，int，long，char，float，double，boolean</p>
+<h3 id="6-String-str-x3D-“i”与String-str-x3D-new-String（“i”）一样吗？"><a href="#6-String-str-x3D-“i”与String-str-x3D-new-String（“i”）一样吗？" class="headerlink" title="6.String str &#x3D; “i”与String str &#x3D; new String（“i”）一样吗？"></a>6.String str &#x3D; “i”与String str &#x3D; new String（“i”）一样吗？</h3><p>String str&#x3D;”i”会将其分配到常量池中，常量池中没有重复的元素，如果常量池中存中i，就将i的地址赋给变量，如果没有就创建一个再赋给变量。</p>
+<p>String str&#x3D;new String(“i”)会将对象分配到堆中，即使内存一样，还是会重新创建一个新的对象。</p>
+<h3 id="7-字符串反转"><a href="#7-字符串反转" class="headerlink" title="7.字符串反转"></a>7.字符串反转</h3><p>将对象封装到stringBuilder中，调用reverse方法反转。</p>
+<p><img src="https://img-blog.csdnimg.cn/20210801160716840.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b3J1aV9qYXZh,size_16,color_FFFFFF,t_70" alt="img"></p>
+<h3 id="8、String-类的常用方法都有那些？"><a href="#8、String-类的常用方法都有那些？" class="headerlink" title="8、String 类的常用方法都有那些？"></a>8、String 类的常用方法都有那些？</h3><p>（1）常见String类的获取功能</p>
+<p>length：获取字符串长度；<br>charAt(int index)：获取指定索引位置的字符；<br>indexOf(int ch)：返回指定字符在此字符串中第一次出现处的索引；<br>substring(int start)：从指定位置开始截取字符串,默认到末尾；<br>substring(int start,int end)：从指定位置开始到指定位置结束截取字符串；</p>
+<p>（2）常见String类的判断功能</p>
+<p>equals(Object obj)： 比较字符串的内容是否相同,区分大小写；<br>contains(String str): 判断字符串中是否包含传递进来的字符串；<br>startsWith(String str): 判断字符串是否以传递进来的字符串开头；<br>endsWith(String str): 判断字符串是否以传递进来的字符串结尾；<br>isEmpty(): 判断字符串的内容是否为空串””；</p>
+<p>（3）常见String类的转换功能</p>
+<p>byte[] getBytes(): 把字符串转换为字节数组；<br>char[] toCharArray(): 把字符串转换为字符数组；<br>String valueOf(char[] chs): 把字符数组转成字符串。valueOf可以将任意类型转为字符串；<br>toLowerCase(): 把字符串转成小写；<br>toUpperCase(): 把字符串转成大写；<br>concat(String str): 把字符串拼接；</p>
+<p>（4）常见String类的其他常用功能</p>
+<p>replace(char old,char new) 将指定字符进行互换<br>replace(String old,String new) 将指定字符串进行互换<br>trim() 去除两端空格<br>int compareTo(String str) 会对照ASCII 码表 从第一个字母进行减法运算 返回的就是这个减法的结果，如果前面几个字母一样会根据两个字符串的长度进行减法运算返回的就是这个减法的结果，如果连个字符串一摸一样 返回的就是0。</p>
+<p>这样子有点不知所云，效率太低，我决定只把一些我认为有难度的题记录下来，简单的就自己过一遍。</p>
+<h3 id="30、什么是-Java-的内存模型"><a href="#30、什么是-Java-的内存模型" class="headerlink" title="30、什么是 Java 的内存模型?"></a>30、什么是 Java 的内存模型?</h3><p>在了解什么是 Java 内存模型之前，先了解一下为什么要提出 Java 内存模型。</p>
+<p>之前提到过并发编程有三大问题</p>
+<p>CPU 缓存，在多核 CPU 的情况下，带来了可见性问题<br>操作系统对当前执行线程的切换，带来了原子性问题<br>译器指令重排优化，带来了有序性问题<br>为了解决并发编程的三大问题，提出了 JSR-133，新的 Java 内存模型，JDK 5 开始使用。</p>
+<p>简单总结下</p>
+<p>Java 内存模型是 JVM 的一种规范<br>定义了共享内存在多线程程序中读写操作行为的规范<br>屏蔽了各种硬件和操作系统的访问差异，保证了 Java 程序在各种平台下对内存的访问效果一致<br>解决并发问题采用的方式：限制处理器优化和使用内存屏障<br>增强了三个同步原语（synchronized、volatile、final）的内存语义<br>定义了 happens-before 规则</p>
+<h3 id="33、实例化对象有哪几种方式"><a href="#33、实例化对象有哪几种方式" class="headerlink" title="33、实例化对象有哪几种方式"></a>33、实例化对象有哪几种方式</h3><p>new<br>clone()<br>通过反射机制创建</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用 Class.forName方法获取类，在调用类的newinstance（）方法</span></span><br><span class="line">Class&lt;?&gt; cls = Class.forName(<span class="string">&quot;com.dao.User&quot;</span>);</span><br><span class="line"><span class="type">User</span> <span class="variable">u</span> <span class="operator">=</span> (User)cls.newInstance();</span><br></pre></td></tr></table></figure>
+
+<p>序列化反序列化</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将一个对象实例化后，进行序列化，再反序列化，也可以获得一个对象（远程通信的场景下使用）</span></span><br><span class="line"><span class="type">ObjectOutputStream</span> <span class="variable">out</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectOutputStream</span> (<span class="keyword">new</span> <span class="title class_">FileOutputStream</span>(<span class="string">&quot;D:/data.txt&quot;</span>));</span><br><span class="line"><span class="comment">//序列化对象</span></span><br><span class="line">out.writeObject(user1); </span><br><span class="line">out.close();</span><br><span class="line"><span class="comment">//反序列化对象</span></span><br><span class="line"><span class="type">ObjectInputStream</span> <span class="variable">in</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ObjectInputStream</span>(<span class="keyword">new</span> <span class="title class_">FileInputStream</span>(<span class="string">&quot;D:/data.txt&quot;</span>));</span><br><span class="line"><span class="type">User</span> <span class="variable">user2</span> <span class="operator">=</span> (User) in.readObject();</span><br><span class="line">System.out.println(<span class="string">&quot;反序列化user：&quot;</span> + user2);</span><br><span class="line">in.close();</span><br></pre></td></tr></table></figure>
+
+<h3 id="34-补码运算"><a href="#34-补码运算" class="headerlink" title="34.补码运算"></a>34.补码运算</h3><p>已知一个负数的补码，将其转换为十进制数，步骤如下：</p>
+<ol>
+<li>先对各位取反；</li>
+<li>将其转换为十进制数；</li>
+<li>加上负号，再减去1；</li>
+</ol>
+<p>例如10000000，最高位是1，是负数，①对各位取反得01111111，转换为十进制就是127，加上负号得-127，再减去1得-128；</p>
+<h3 id="44、在-Queue-中-poll-和-remove-有什么区别？"><a href="#44、在-Queue-中-poll-和-remove-有什么区别？" class="headerlink" title="44、在 Queue 中 poll()和 remove()有什么区别？"></a>44、在 Queue 中 poll()和 remove()有什么区别？</h3><p>（1）offer()和add()区别：</p>
+<p>增加新项时，如果队列满了，add会抛出异常，offer返回false。</p>
+<p>（2）poll()和remove()区别：</p>
+<p>poll()和remove()都是从队列中删除第一个元素，remove抛出异常，poll返回null。</p>
+<p>（3）peek()和element（）区别：</p>
+<p>peek()和element（）用于查询队列头部元素，为空时element抛出异常，peek返回null。</p>
+<h3 id="48、Iterator-和-ListIterator-有什么区别？"><a href="#48、Iterator-和-ListIterator-有什么区别？" class="headerlink" title="48、Iterator 和 ListIterator 有什么区别？"></a>48、Iterator 和 ListIterator 有什么区别？</h3><p>（1）ListIterator 继承 Iterator</p>
+<p>（2）ListIterator 比 Iterator多方法</p>
+<p>add(E e)  将指定的元素插入列表，插入位置为迭代器当前位置之前<br>set(E e)  迭代器返回的最后一个元素替换参数e<br>hasPrevious()  迭代器当前位置，反向遍历集合是否含有元素<br>previous()  迭代器当前位置，反向遍历集合，下一个元素<br>previousIndex()  迭代器当前位置，反向遍历集合，返回下一个元素的下标<br>nextIndex()  迭代器当前位置，返回下一个元素的下标<br>（3）使用范围不同，Iterator可以迭代所有集合；ListIterator 只能用于List及其子类</p>
+<p>ListIterator 有 add 方法，可以向 List 中添加对象；Iterator 不能<br>ListIterator 有 hasPrevious() 和 previous() 方法，可以实现逆向遍历；Iterator不可以<br>ListIterator 有 nextIndex() 和previousIndex() 方法，可定位当前索引的位置；Iterator不可以<br>ListIterator 有 set()方法，可以实现对 List 的修改；Iterator 仅能遍历，不能修改。</p>
+<h3 id="49、怎么确保一个集合不能被修改？"><a href="#49、怎么确保一个集合不能被修改？" class="headerlink" title="49、怎么确保一个集合不能被修改？"></a>49、怎么确保一个集合不能被修改？</h3><p>我们很容易想到用final关键字进行修饰，我们都知道</p>
+<p>final关键字可以修饰类，方法，成员变量，final修饰的类不能被继承，final修饰的方法不能被重写，final修饰的成员变量必须初始化值，如果这个成员变量是基本数据类型，表示这个变量的值是不可改变的，如果说这个成员变量是引用类型，则表示这个引用的地址值是不能改变的，但是这个引用所指向的对象里面的内容还是可以改变的。</p>
+<p>那么，我们怎么确保一个集合不能被修改？首先我们要清楚，集合（map,set,list…）都是引用类型，所以我们如果用final修饰的话，集合里面的内容还是可以修改的。</p>
+<p>采用Collections包下的unmodifiableMap方法，通过这个方法返回的map,是不可以修改的。他会报 java.lang.UnsupportedOperationException错。</p>
+<p>同理：Collections包也提供了对list和set集合的方法。</p>
+<p>Collections.unmodifiableList(List)<br>Collections.unmodifiableSet(Set)</p>
+<p><img src="https://img-blog.csdnimg.cn/2021080116342771.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2d1b3J1aV9qYXZh,size_16,color_FFFFFF,t_70" alt="img"></p>
+<h3 id="52、ConcurrentHashMap-JDK1-8-为什么要使用synchronized而不是如ReentranLock这样的可重入锁？"><a href="#52、ConcurrentHashMap-JDK1-8-为什么要使用synchronized而不是如ReentranLock这样的可重入锁？" class="headerlink" title="52、ConcurrentHashMap(JDK1.8)为什么要使用synchronized而不是如ReentranLock这样的可重入锁？"></a>52、ConcurrentHashMap(JDK1.8)为什么要使用synchronized而不是如ReentranLock这样的可重入锁？</h3><p>我想从下面几个角度讨论这个问题：</p>
+<p>（1）锁的粒度</p>
+<p>首先锁的粒度并没有变粗，甚至变得更细了。每当扩容一次，ConcurrentHashMap的并发度就扩大一倍。</p>
+<p>（2）Hash冲突</p>
+<p>JDK1.7中，ConcurrentHashMap从过二次hash的方式（Segment -&gt; HashEntry）能够快速的找到查找的元素。在1.8中通过链表加红黑树的形式弥补了put、get时的性能差距。<br>JDK1.8中，在ConcurrentHashmap进行扩容时，其他线程可以通过检测数组中的节点决定是否对这条链表（红黑树）进行扩容，减小了扩容的粒度，提高了扩容的效率。</p>
+<p>下面是我对面试中的那个问题的一下看法。</p>
+<p>为什么是synchronized，而不是ReentranLock</p>
+<p>（1）减少内存开销</p>
+<p>假设使用可重入锁来获得同步支持，那么每个节点都需要通过继承AQS来获得同步支持。但并不是每个节点都需要获得同步支持的，只有链表的头节点（红黑树的根节点）需要同步，这无疑带来了巨大内存浪费。</p>
+<p>（2）获得JVM的支持</p>
+<p>可重入锁毕竟是API这个级别的，后续的性能优化空间很小。<br>synchronized则是JVM直接支持的，JVM能够在运行时作出相应的优化措施：锁粗化、锁消除、锁自旋等等。这就使得synchronized能够随着JDK版本的升级而不改动代码的前提下获得性能上的提升。</p>
+<h3 id="53concurrentHashMap和HashTable有什么区别"><a href="#53concurrentHashMap和HashTable有什么区别" class="headerlink" title="53concurrentHashMap和HashTable有什么区别"></a>53concurrentHashMap和HashTable有什么区别</h3><p>ConcurrentHashMap 和 HashTable 都是用于实现线程安全的哈希表（Hashtable）的类，但它们在设计和性能上存在一些区别。</p>
+<ol>
+<li>线程安全性：<ul>
+<li>HashTable：是早期 Java 集合框架中提供的线程安全的哈希表实现。它的<strong>所有方法都是同步</strong>的，也就是说，在多线程环境下，多个线程可以安全地访问和修改 HashTable 的实例。</li>
+<li>ConcurrentHashMap：是 JDK 1.5 引入的线程安全的哈希表实现，相较于 HashTable，ConcurrentHashMap 采用了更精细的锁机制和分段锁的设计。它在多线程环境下提供更好的并发性能，允许多个线程同时进行读取操作，并且<strong>仅在写入操作时进行必要的同步</strong>。</li>
+</ul>
+</li>
+<li>锁机制：<ul>
+<li>HashTable：使用一把全局锁（synchronized）来锁定整个 HashTable 对象，在多线程环境下可能会出现较高的竞争和性能瓶颈。</li>
+<li>ConcurrentHashMap：采用了分段锁（Segment）的设计，内部将哈希表分成多个段（Segment），每个段维护一部分数据，不同段之间的数据可以并行访问，读写操作只锁定对应的段，多线程读取操作时不会互斥，提供了更好的并发度和性能。</li>
+</ul>
+</li>
+<li>迭代器支持：<ul>
+<li>HashTable：使用迭代器（Iterator）遍历 HashTable 的时候，需要获取全局锁，阻塞其他线程的写操作。</li>
+<li>ConcurrentHashMap：支持并发的键-值遍历，通过使用 ConcurrentHashMap 的特殊迭代器，允许多线程并发地读取，而不会阻塞写入操作。</li>
+</ul>
+</li>
+<li>允许空键值：<ul>
+<li>HashTable：不允许键或值为 null。</li>
+<li>ConcurrentHashMap：允许键和值为 null。</li>
+</ul>
+</li>
+</ol>
+<p>总体而言，ConcurrentHashMap 在多线程环境下的性能更好，因为它利用了更细粒度的锁机制和并发技术，减少了竞争和互斥。如果使用 Java 5 或更高版本，推荐使用 ConcurrentHashMap 来替代 HashTable。然而，如果需要保证传统的线程安全性，且不关注性能，仍然可以使用 HashTable。</p>
+<h3 id="55-请谈谈-ReadWriteLock-和-StampedLock"><a href="#55-请谈谈-ReadWriteLock-和-StampedLock" class="headerlink" title="55.请谈谈 ReadWriteLock 和 StampedLock"></a>55.请谈谈 ReadWriteLock 和 StampedLock</h3><p>ReadWriteLock（读写锁）和 StampedLock（标记锁）都是用于并发控制的锁机制，但在实现和使用方式上有一些区别。</p>
+<ol>
+<li>ReadWriteLock（读写锁）：<ul>
+<li>ReadWriteLock 允许多个线程同时读取共享资源，但只允许一个线程写入共享资源。</li>
+<li>ReadWriteLock 接口提供了两个关键的方法：readLock() 和 writeLock()，用于获取读锁和写锁。</li>
+<li>读锁（共享锁）可以被多个线程同时获取，只要没有线程持有写锁。读锁之间是不互斥的，允许并发读取共享资源，因此适用于读多写少的场景。</li>
+<li>写锁（排它锁）只能被一个线程获取，当线程持有写锁时，其他线程无法获取读锁或写锁。写锁用于修改共享资源，因此对共享资源的修改是互斥的，适用于写操作较频繁的场景。</li>
+</ul>
+</li>
+<li>StampedLock（标记锁）：<ul>
+<li>StampedLock 也支持读写分离的并发访问，类似于 ReadWriteLock，但提供了更高级别的功能。</li>
+<li>在 StampedLock 中，锁的状态由一个 long 类型的标记表示，称为 stamp。</li>
+<li>StampedLock 提供了三种具体的锁：读锁、写锁和乐观读锁。</li>
+<li>读锁（共享锁）和写锁（排它锁）的使用方式与 ReadWriteLock 类似，但乐观读锁是一种无锁操作，不阻塞其他线程的锁获取。</li>
+<li>乐观读锁的获取方式是用 tryOptimisticRead() 方法，获取到一个标记，并在后续读操作中验证标记的有效性，如果标记无效，则需要重新获取锁。</li>
+<li>StampedLock 还提供了手动的锁降级和锁升级操作，即从写锁降级为读锁或从读锁升级为写锁。</li>
+</ul>
+</li>
+</ol>
+<p>总体而言，ReadWriteLock 适用于读多写少的场景，提供了明确的读锁和写锁，适合对共享资源进行高并发读取和独占性写操作的控制。而 StampedLock 则提供了更灵活的锁方式，包括读锁、写锁和乐观读锁，适用于读多写少且具备无锁操作和锁降级&#x2F;升级需求的场景。选择使用哪种锁机制应根据具体的应用需求和并发访问模式来确定。</p>
+<h3 id="56、线程的run-和start-有什么区别？"><a href="#56、线程的run-和start-有什么区别？" class="headerlink" title="56、线程的run()和start()有什么区别？"></a>56、线程的run()和start()有什么区别？</h3><p>每个线程都是通过某个特定Thread对象所对应的方法run()来完成其操作的，run()方法称为线程体。通过调用Thread类的start()方法来启动一个线程。</p>
+<p>start() 方法用于启动线程，run() 方法用于执行线程的运行时代码。run() 可以重复调用，而 start() 只能调用一次。</p>
+<p>start()方法来启动一个线程，真正实现了多线程运行。调用start()方法无需等待run方法体代码执行完毕，可以直接继续执行其他的代码； 此时线程是处于就绪状态，并没有运行。 然后通过此Thread类调用方法run()来完成其运行状态， run()方法运行结束， 此线程终止。然后CPU再调度其它线程。</p>
+<p>run()方法是在本线程里的，只是线程里的一个函数，而不是多线程的。 如果直接调用run()，其实就相当于是调用了一个普通函数而已，直接待用run()方法必须等待run()方法执行完毕才能执行下面的代码，所以执行路径还是只有一条，根本就没有线程的特征，所以在多线程执行时要使用start()方法而不是run()方法。</p>
+<h3 id="58-synchronized的工作原理"><a href="#58-synchronized的工作原理" class="headerlink" title="58.synchronized的工作原理"></a>58.synchronized的工作原理</h3><p><code>synchronized</code> 是 Java 中用于实现线程同步的关键字。它可以用于修饰代码块或方法，或者使用在 <code>static</code> 方法或静态代码块中。当多个线程试图同时访问被 <code>synchronized</code> 修饰的代码块或方法时，只有一个线程能够获得锁，其他线程将进入阻塞状态，直到获取到锁的线程释放锁。</p>
+<p>在 Java 中，每个对象都有一把内部锁（即监视器锁或互斥锁），这把锁与对象实例关联。只有持有锁的线程才能够执行被 <code>synchronized</code> 修饰的代码块或方法。当一个线程进入一个 <code>synchronized</code> 代码块时，它会尝试获取对象实例的锁。如果锁没有被其他线程占用，该线程将获得锁，并执行代码块或方法。在执行结束时，它会释放锁，使其他线程可以竞争获取同样的锁。</p>
+<p><code>synchronized</code> 关键字实现了以下特性：</p>
+<ol>
+<li>互斥性：同一时间只允许一个线程进入被 <code>synchronized</code> 修饰的代码块或方法，保证了线程间的互斥执行。</li>
+<li>可见性：线程在释放锁之前，对共享变量所做的修改对其他线程可见。这是因为进入 <code>synchronized</code> 代码块时会将变量从主存中读取到线程的工作内存中，执行结束时会将修改的结果刷新回主存。</li>
+<li>顺序性：线程在获取锁时，会按照获取锁的顺序进行排队，保证了代码块或方法的执行顺序。</li>
+<li>非公平性：JVM 对 <code>synchronized</code> 关键字的实现通常是非公平的，即不保证等待的线程按照先后顺序获得锁。</li>
+</ol>
+<p>需要注意的是，<code>synchronized</code> 关键字仅作用于同一个锁对象上的线程，对不同锁对象的线程没有影响。此外，<code>synchronized</code> 关键字在使用时需要谨慎，过度使用或不当使用可能导致死锁、性能问题或并发性下降。在 Java 5 之后，JDK 提供了更多并发工具，如 <code>ReentrantLock</code> 和 <code>Lock</code> 接口，可以提供更灵活和细粒度的锁控制。</p>
+<h3 id="60-为什么-wait-notify-和-notifyAll-必须在同步方法或者同步块中被调用"><a href="#60-为什么-wait-notify-和-notifyAll-必须在同步方法或者同步块中被调用" class="headerlink" title="60.为什么 wait(), notify()和 notifyAll()必须在同步方法或者同步块中被调用"></a>60.为什么 wait(), notify()和 notifyAll()必须在同步方法或者同步块中被调用</h3><p><code>wait()</code>, <code>notify()</code>, 和 <code>notifyAll()</code> 方法必须在同步方法或同步块中被调用是因为它们是用于线程之间的协作和通信，而线程之间的协作需要通过共享的监视器锁来实现。</p>
+<p>当一个线程执行一个对象的 <code>wait()</code> 方法时，它会释放该对象上的锁，并且进入等待状态，直到其他线程调用相同对象的 <code>notify()</code> 或 <code>notifyAll()</code> 方法来通知等待的线程。类似地，<code>notify()</code> 方法用于唤醒任意一个等待线程，而 <code>notifyAll()</code> 方法用于唤醒所有等待线程。</p>
+<p>为了确保线程之间正确的协作，<code>wait()</code>, <code>notify()</code>, 和 <code>notifyAll()</code> 方法必须在已经获取了对象的锁的线程上进行调用。这是因为只有持有锁的线程才能够进入被 <code>synchronized</code> 修饰的代码块或方法，这些方法需要在获取到对象的锁之后才能执行。</p>
+<p>如果在没有持有对象锁的线程上调用这些方法，即在非同步方法或非同步块中调用，会导致 <code>IllegalMonitorStateException</code> 异常。</p>
+<p>因此，为了保证线程之间的有效协作和正确的同步，<code>wait()</code>, <code>notify()</code>, 和 <code>notifyAll()</code> 方法需要在同步方法或同步块中被调用，这样能够确保线程在正确的上下文中对共享资源进行协调和通信。</p>
+<h3 id="61、Java-如何实现多线程之间的通讯和协作？"><a href="#61、Java-如何实现多线程之间的通讯和协作？" class="headerlink" title="61、Java 如何实现多线程之间的通讯和协作？"></a>61、Java 如何实现多线程之间的通讯和协作？</h3><ol>
+<li>wait()、notify() 和 notifyAll()：通过调用对象的 <code>wait()</code> 方法，一个线程可以进入等待状态，直到其他线程调用相同对象的 <code>notify()</code> 或 <code>notifyAll()</code> 方法来唤醒等待的线程。这种方式是基于对象的锁机制实现的，通常需要与 <code>synchronized</code> 关键字一起使用。</li>
+<li>Condition 接口：<code>java.util.concurrent.locks.Condition</code> 接口提供了更灵活的线程通讯机制，不同于对象的 <code>wait()</code> 和 <code>notify()</code>，<code>Condition</code> 提供了 <code>await()</code>、<code>signal()</code> 和 <code>signalAll()</code> 方法，可以在使用 <code>Lock</code> 对象（如 <code>ReentrantLock</code>）时进行调用。</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="https://Chernoy.github.io">Chernoy</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://chernoy.github.io/2023/07/07/javaSE%E9%9D%A2%E8%AF%95%E9%A2%98/">https://chernoy.github.io/2023/07/07/javaSE%E9%9D%A2%E8%AF%95%E9%A2%98/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://Chernoy.github.io" target="_blank">Chernoy’s blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://img1.imgtp.com/2023/06/26/jzQID8eJ.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2023/06/29/redis%E5%AE%9E%E6%88%98/" title="redis实战"><img class="cover" src="https://img1.imgtp.com/2023/06/26/HoNmUM9J.jpg" onerror="onerror=null;src='https://img1.imgtp.com/2023/06/26/u04s7bnB.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">redis实战</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://pic.peo.pw/a/2023/05/29/647490a877680.jpg" onerror="this.onerror=null;this.src='https://img1.imgtp.com/2023/06/26/u04s7bnB.jpg'" alt="avatar"/></div><div class="author-info__name">Chernoy</div><div class="author-info__description">一以贯之的努力，不得懈怠的人生，每天微小的积累会决定最终的结果。</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">15</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Chernoy"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Chernoy/" target="_blank" title="Github"><i class="fab fa-github" style="color: #hdhfbb;"></i></a><a class="social-icon" href="/1959613890@email.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #000000;"></i></a><a class="social-icon" href="/1959613890" target="_blank" title="QQ"><i class="fa-brands fa-qq" style="color: #000000;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">Chernoy的博客，欢迎访问！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content is-expand"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BE%8B%E9%A2%98%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">1.例题：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BE%8B%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text">2.例题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%9F%A5%E8%AF%86%E7%82%B9"><span class="toc-number">3.</span> <span class="toc-text">3.知识点</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9A%91%E5%81%87%E6%97%A5%E8%AE%B0%E5%87%86%E5%A4%87%E5%90%AF%E7%A8%8B%EF%BC%9A"><span class="toc-number"></span> <span class="toc-text">暑假日记准备启程：</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2023-x2F-7-x2F-22"><span class="toc-number">1.</span> <span class="toc-text">1.2023&#x2F;7&#x2F;22</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-JDK%E5%92%8CJRE%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9A"><span class="toc-number">1.1.</span> <span class="toc-text">1.JDK和JRE的区别：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-x3D-x3D-%E5%92%8Cequals%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.2.</span> <span class="toc-text">2.&#x3D;&#x3D; 和equals的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-final%E5%9C%A8java%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text">3.final在java中的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-java%E4%B8%AD%E7%9A%84Math-round-1-5-%E7%AD%89%E4%BA%8E%E5%A4%9A%E5%B0%91"><span class="toc-number">1.4.</span> <span class="toc-text">4.java中的Math.round(-1.5)等于多少</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-String%E5%B1%9E%E4%BA%8E%E5%9F%BA%E7%A1%80%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E5%90%97%EF%BC%9F"><span class="toc-number">1.5.</span> <span class="toc-text">5.String属于基础的数据类型吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-String-str-x3D-%E2%80%9Ci%E2%80%9D%E4%B8%8EString-str-x3D-new-String%EF%BC%88%E2%80%9Ci%E2%80%9D%EF%BC%89%E4%B8%80%E6%A0%B7%E5%90%97%EF%BC%9F"><span class="toc-number">1.6.</span> <span class="toc-text">6.String str &#x3D; “i”与String str &#x3D; new String（“i”）一样吗？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%8D%E8%BD%AC"><span class="toc-number">1.7.</span> <span class="toc-text">7.字符串反转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8%E3%80%81String-%E7%B1%BB%E7%9A%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%E9%83%BD%E6%9C%89%E9%82%A3%E4%BA%9B%EF%BC%9F"><span class="toc-number">1.8.</span> <span class="toc-text">8、String 类的常用方法都有那些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#30%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AF-Java-%E7%9A%84%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.9.</span> <span class="toc-text">30、什么是 Java 的内存模型?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#33%E3%80%81%E5%AE%9E%E4%BE%8B%E5%8C%96%E5%AF%B9%E8%B1%A1%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="toc-number">1.10.</span> <span class="toc-text">33、实例化对象有哪几种方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#34-%E8%A1%A5%E7%A0%81%E8%BF%90%E7%AE%97"><span class="toc-number">1.11.</span> <span class="toc-text">34.补码运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#44%E3%80%81%E5%9C%A8-Queue-%E4%B8%AD-poll-%E5%92%8C-remove-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.12.</span> <span class="toc-text">44、在 Queue 中 poll()和 remove()有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#48%E3%80%81Iterator-%E5%92%8C-ListIterator-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.13.</span> <span class="toc-text">48、Iterator 和 ListIterator 有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#49%E3%80%81%E6%80%8E%E4%B9%88%E7%A1%AE%E4%BF%9D%E4%B8%80%E4%B8%AA%E9%9B%86%E5%90%88%E4%B8%8D%E8%83%BD%E8%A2%AB%E4%BF%AE%E6%94%B9%EF%BC%9F"><span class="toc-number">1.14.</span> <span class="toc-text">49、怎么确保一个集合不能被修改？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#52%E3%80%81ConcurrentHashMap-JDK1-8-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E4%BD%BF%E7%94%A8synchronized%E8%80%8C%E4%B8%8D%E6%98%AF%E5%A6%82ReentranLock%E8%BF%99%E6%A0%B7%E7%9A%84%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81%EF%BC%9F"><span class="toc-number">1.15.</span> <span class="toc-text">52、ConcurrentHashMap(JDK1.8)为什么要使用synchronized而不是如ReentranLock这样的可重入锁？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#53concurrentHashMap%E5%92%8CHashTable%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-number">1.16.</span> <span class="toc-text">53concurrentHashMap和HashTable有什么区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#55-%E8%AF%B7%E8%B0%88%E8%B0%88-ReadWriteLock-%E5%92%8C-StampedLock"><span class="toc-number">1.17.</span> <span class="toc-text">55.请谈谈 ReadWriteLock 和 StampedLock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#56%E3%80%81%E7%BA%BF%E7%A8%8B%E7%9A%84run-%E5%92%8Cstart-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">1.18.</span> <span class="toc-text">56、线程的run()和start()有什么区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#58-synchronized%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">1.19.</span> <span class="toc-text">58.synchronized的工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#60-%E4%B8%BA%E4%BB%80%E4%B9%88-wait-notify-%E5%92%8C-notifyAll-%E5%BF%85%E9%A1%BB%E5%9C%A8%E5%90%8C%E6%AD%A5%E6%96%B9%E6%B3%95%E6%88%96%E8%80%85%E5%90%8C%E6%AD%A5%E5%9D%97%E4%B8%AD%E8%A2%AB%E8%B0%83%E7%94%A8"><span class="toc-number">1.20.</span> <span class="toc-text">60.为什么 wait(), notify()和 notifyAll()必须在同步方法或者同步块中被调用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#61%E3%80%81Java-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%B9%8B%E9%97%B4%E7%9A%84%E9%80%9A%E8%AE%AF%E5%92%8C%E5%8D%8F%E4%BD%9C%EF%BC%9F"><span class="toc-number">1.21.</span> <span class="toc-text">61、Java 如何实现多线程之间的通讯和协作？</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/07/07/javaSE%E9%9D%A2%E8%AF%95%E9%A2%98/" title="javaSE面试题"><img src="https://img1.imgtp.com/2023/06/26/jzQID8eJ.jpg" onerror="this.onerror=null;this.src='https://img1.imgtp.com/2023/06/26/u04s7bnB.jpg'" alt="javaSE面试题"/></a><div class="content"><a class="title" href="/2023/07/07/javaSE%E9%9D%A2%E8%AF%95%E9%A2%98/" title="javaSE面试题">javaSE面试题</a><time datetime="2023-07-07T05:23:29.000Z" title="发表于 2023-07-07 13:23:29">2023-07-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/29/redis%E5%AE%9E%E6%88%98/" title="redis实战"><img src="https://img1.imgtp.com/2023/06/26/HoNmUM9J.jpg" onerror="this.onerror=null;this.src='https://img1.imgtp.com/2023/06/26/u04s7bnB.jpg'" alt="redis实战"/></a><div class="content"><a class="title" href="/2023/06/29/redis%E5%AE%9E%E6%88%98/" title="redis实战">redis实战</a><time datetime="2023-06-29T01:52:29.000Z" title="发表于 2023-06-29 09:52:29">2023-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/25/mybatisplus%E7%9A%84CRUD%E6%96%B9%E6%B3%95/" title="mybatisplus的CRUD方法"><img src="https://img1.imgtp.com/2023/06/26/ehoRO55g.jpg" onerror="this.onerror=null;this.src='https://img1.imgtp.com/2023/06/26/u04s7bnB.jpg'" alt="mybatisplus的CRUD方法"/></a><div class="content"><a class="title" href="/2023/06/25/mybatisplus%E7%9A%84CRUD%E6%96%B9%E6%B3%95/" title="mybatisplus的CRUD方法">mybatisplus的CRUD方法</a><time datetime="2023-06-25T07:10:11.000Z" title="发表于 2023-06-25 15:10:11">2023-06-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/06/01/SpringSecurity-JWT/" title="SpringSecurity+JWT"><img src="https://img1.imgtp.com/2023/06/26/PUZSVSqk.png" onerror="this.onerror=null;this.src='https://img1.imgtp.com/2023/06/26/u04s7bnB.jpg'" alt="SpringSecurity+JWT"/></a><div class="content"><a class="title" href="/2023/06/01/SpringSecurity-JWT/" title="SpringSecurity+JWT">SpringSecurity+JWT</a><time datetime="2023-06-01T02:15:19.000Z" title="发表于 2023-06-01 10:15:19">2023-06-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/05/31/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" title="函数式编程"><img src="https://img1.imgtp.com/2023/06/26/jzQID8eJ.jpg" onerror="this.onerror=null;this.src='https://img1.imgtp.com/2023/06/26/u04s7bnB.jpg'" alt="函数式编程"/></a><div class="content"><a class="title" href="/2023/05/31/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/" title="函数式编程">函数式编程</a><time datetime="2023-05-30T23:23:17.000Z" title="发表于 2023-05-31 07:23:17">2023-05-31</time></div></div></div></div></div></div></main><footer id="footer" style="background: transparent"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Chernoy</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">欢迎光顾Chernoy的博客!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'k2BY9q06vuF7P54lwGRWbtC7-gzGzoHsz',
+      appKey: 'KVskSoDG7ONXzmpG8cz9XHJY',
+      avatar: 'monsterid',
+      serverURLs: 'https://k2by9q06.lc-cn-n1-shared.com',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: true
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><div class="aplayer no-destroy" data-id="8379652209" data-server="netease" data-type="playlist" data-fixed="true" data-autoplay="true"> </div><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-nest.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-show-text" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/click-show-text.min.js" data-mobile="false" data-text="白银,御行,绝不,告白" data-fontsize="20px" data-random="false" async="async"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"]):not([href="/essay/"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = 'b16a1fa0e63c46a4b8f28abfb06ae3fe';
+  var gaud_map_key = 'e2b04289e870b005374ee030148d64fd&s=rsv3';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><!-- hexo injector body_end end --><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":200,"height":380,"hOffset":0,"vOffset":-50},"mobile":{"show":true},"react":{"opacity":0.85},"log":false});</script></body></html>
